@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Gyulpetale</title>
+    <link rel="stylesheet" href="css/fondo.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-horizontal">
+            <div class="logo-container">
+                <h2>🌸 Gyulpetale</h2>
+            </div>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#">Categorías ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="categoria.html?tipo=tejido">Flores de Tejido</a></li>
+                        <li><a href="categoria.html?tipo=limpiapipa">Flores de Limpiapipa</a></li>
+                        <li><a href="categoria.html?tipo=satinada">Flores de Cinta Satinada</a></li>
+                        <li><a href="categoria.html?tipo=eco">Flores Eco-sostenibles</a></li>
+                    </ul>
+                </li>
+                <li><a href="ofertas.html">Ofertas del Mes</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+            <div class="carrito-icono" onclick="toggleCarrito()">
+                <i class="fas fa-shopping-cart"></i> <span id="contador-carrito">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay-fondo" id="overlay" onclick="toggleCarrito()"></div>
+    <div class="sidebar-carrito" id="sidebar-carrito">
+        <div class="sidebar-header">
+            <h3>Tu Carrito</h3>
+            <button class="btn-cerrar" onclick="toggleCarrito()">&times;</button>
+        </div>
+        <div class="carrito-items" id="carrito-items"></div>
+        <div class="carrito-footer">
+            <h3>Total: <span id="carrito-total">$0.00</span></h3>
+            <a href="carrito.html" class="btn-ver-carrito">Ver Carrito Completo</a>
+            <button class="btn-agregar" style="width:100%; margin-top:10px;" onclick="pagarPaypal()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="header-contacto">
+        <h1>Contáctanos</h1>
+        <p>Estamos aquí para responder tus dudas y crear el ramo perfecto para ti.</p>
+    </div>
+
+    <div class="contenedor-contacto">
+        
+        <div class="columna-info">
+            <div class="tarjeta-datos">
+                <h3>📍 Datos de Contacto</h3>
+                <p>Visítanos o escríbenos:</p>
+                
+                <div class="dato-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>Gyulpetalé<br>Centro De Lima, Lima, Perú</p>
+                    </div>
+                </div>
+
+                <div class="dato-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Teléfono</h4>
+                        <p>901 324 647</p>
+                    </div>
+                </div>
+
+                <div class="dato-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Correo Electrónico</h4>
+                        <p>gyulpetale.floreriaamano@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mapa-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.964560706248!2d-77.03536838561766!3d-12.04637309146747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b61c9258df%3A0x63351d53337a5482!2sCentro%20Hist%C3%B3rico%20de%20Lima%2C%20Lima!5e0!3m2!1ses!2spe!4v1625068945621!5m2!1ses!2spe" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="columna-formulario">
+            <div class="form-box">
+                <h3>📞 Nosotros te llamamos</h3>
+                <p>Déjanos tus datos y nos pondremos en contacto contigo lo antes posible.</p>
+                
+                <form onsubmit="enviarFormulario(event)">
+                    <div class="input-group">
+                        <label>Nombres Completos</label>
+                        <input type="text" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="fila-doble">
+                        <div class="input-group">
+                            <label>Teléfono / Celular</label>
+                            <input type="tel" placeholder="901 324 647" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Correo Electrónico</label>
+                            <input type="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Mensaje (Opcional)</label>
+                        <textarea rows="4" placeholder="Estoy interesado en un ramo de rosas satinadas..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="chat-toggle" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+</div>
+
+<div class="chat-window" id="chat-window">
+    <div class="chat-header">
+        <div class="chat-title">
+            <span>🌸 Asistente Gyulpetale</span>
+            <span class="status">En línea</span>
+        </div>
+        <button onclick="toggleChat()">&times;</button>
+    </div>
+    
+    <div class="chat-body" id="chat-body">
+        <div class="mensaje bot">
+            <p>¡Hola! 👋 Soy el asistente virtual de Gyulpetale. ¿En qué puedo ayudarte hoy?</p>
+        </div>
+    </div>
+
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/fondo.js"></script>
+    <script>
+        // Función simple para simular el envío del formulario
+        function enviarFormulario(e) {
+            e.preventDefault(); // Evita que se recargue la página
+            alert("¡Gracias! Hemos recibido tus datos. Nos comunicaremos contigo al 901 324 647 a la brevedad. 🌸");
+            e.target.reset(); // Limpia el formulario
+        }
+    </script>
+</body>
+</html>

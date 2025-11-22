@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Categoría - Gyulpetale</title>
+    <link rel="stylesheet" href="css/fondo.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-horizontal">
+            <div class="logo-container">
+                <h2>🌸 Gyulpetale</h2>
+            </div>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#">Categorías ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="categoria.html?tipo=tejido">Flores de Tejido</a></li>
+                        <li><a href="categoria.html?tipo=limpiapipa">Flores de Limpiapipa</a></li>
+                        <li><a href="categoria.html?tipo=satinada">Flores de Cinta Satinada</a></li>
+                        <li><a href="categoria.html?tipo=eco">Flores Eco-sostenibles</a></li>
+                    </ul>
+                </li>
+                <li><a href="ofertas.html">Ofertas del Mes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="carrito-icono" onclick="toggleCarrito()">
+                <i class="fas fa-shopping-cart"></i> <span id="contador-carrito">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay-fondo" id="overlay" onclick="toggleCarrito()"></div>
+    <div class="sidebar-carrito" id="sidebar-carrito">
+        <div class="sidebar-header">
+            <h3>Tu Carrito</h3>
+            <button class="btn-cerrar" onclick="toggleCarrito()">×</button>
+        </div>
+        <div class="carrito-items" id="carrito-items"></div>
+        <div class="carrito-footer">
+            <h3>Total: <span id="carrito-total">$0.00</span></h3>
+            <a href="carrito.html" class="btn-ver-carrito">Ver Carrito Completo</a>
+            <button class="btn-agregar" style="width:100%; margin-top:10px;" onclick="pagarPaypal()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="hero-ofertas" style="background: #ffe4e1; color: #003087;">
+        <div class="contenido-hero-ofertas">
+            <h1 id="titulo-categoria">Cargando...</h1>
+            <p>Explora nuestra colección exclusiva hecha a mano.</p>
+        </div>
+    </div>
+
+    <section class="seccion-productos">
+        <div class="grid-productos" id="lista-categoria">
+            </div>
+    </section>
+
+    <script src="js/footer.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

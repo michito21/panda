@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Políticas de Privacidad - Gyulpetale</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/fondo.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-horizontal">
+            <div class="logo-container">
+                <h2>🌸 Gyulpetale</h2>
+            </div>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#">Categorías ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="categoria.html?tipo=tejido">Flores de Tejido</a></li>
+                        <li><a href="categoria.html?tipo=limpiapipa">Flores de Limpiapipa</a></li>
+                        <li><a href="categoria.html?tipo=satinada">Flores de Cinta Satinada</a></li>
+                        <li><a href="categoria.html?tipo=eco">Flores Eco-sostenibles</a></li>
+                    </ul>
+                </li>
+                <li><a href="ofertas.html">Ofertas del Mes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="carrito-icono" onclick="toggleCarrito()">
+                <i class="fas fa-shopping-cart"></i> <span id="contador-carrito">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay-fondo" id="overlay" onclick="toggleCarrito()"></div>
+    <div class="sidebar-carrito" id="sidebar-carrito">
+        <div class="sidebar-header">
+            <h3>Tu Carrito</h3>
+            <button class="btn-cerrar" onclick="toggleCarrito()">×</button>
+        </div>
+        <div class="carrito-items" id="carrito-items"></div>
+        <div class="carrito-footer">
+            <h3>Total: <span id="carrito-total">$0.00</span></h3>
+            <a href="carrito.html" class="btn-ver-carrito">Ver Carrito Completo</a>
+            <button class="btn-agregar" style="width:100%; margin-top:10px;" onclick="pagarPaypal()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="contenedor-legal">
+        <h1>Políticas de Privacidad</h1>
+        
+        <p class="intro-legal">
+            Mantener su privacidad es realmente importante para nosotros. Usted nos confía su información, y nos tomamos esa responsabilidad muy en serio.
+        </p>
+        
+        <p>Podemos modificar o actualizar esta Política de Privacidad ocasionalmente para reflejar los cambios en nuestro negocio y prácticas, por lo que debe revisar esta página periódicamente. Cuando cambiemos la política de manera sustancial, se lo notificaremos y actualizaremos el encabezado de "última actualización".</p>
+        
+        <div class="alerta-fecha">
+            <p>Esta Política de Privacidad fue modificada por última vez el: <strong>[22/10/2024]</strong></p>
+            <p>Esta política fue actualizada por última vez el: <strong>[22/10/2024]</strong> en línea con los requisitos del GDPR.</p>
+        </div>
+
+        <hr>
+
+        <h3>1. Información General</h3>
+        <p>En <strong>GyulPetalé</strong> nos tomamos la seguridad y la privacidad en serio. Esta Política de Privacidad explica cómo recopilamos, almacenamos y utilizamos los datos personales cuando navega por nuestra tienda virtual interactúa con nosotros a través de WhatsApp y redes sociales, o nos proporciona sus datos personales de otra manera.</p>
+
+        <h3>2. Qué información recopilamos sobre usted</h3>
+        <h4>Sus datos personales</h4>
+        <p>Sus "datos personales" incluyen la información que usted proporciona (incluidos los formularios que complete), o durante una consulta por correo electrónico o a través de WhatsApp. Ejemplos incluyen: su nombre, correo electrónico, dirección (para entregas en Lima Metropolitana) y cualquier correspondencia.</p>
+        <p><em>No recopilamos ni solicitamos a sabiendas datos personales de ninguna persona menor de dieciséis años.</em></p>
+
+        <h4>Información de Pago</h4>
+        <p>GyulPetalé <strong>no almacena ningún dato de tarjeta de crédito</strong>. Cuando los pagos se procesan, utilizamos proveedores como PayPal que cumplen con los estándares de seguridad.</p>
+
+        <h3>3. Cómo utilizamos la información</h3>
+        <p>Utilizamos sus datos para:</p>
+        <ul>
+            <li>Procesar y enviar su pedido.</li>
+            <li>Enviarle confirmaciones por correo o WhatsApp.</li>
+            <li>Contactarlo con fines de marketing (nuevas colecciones K-dramas/Anime) solo si ha dado su consentimiento.</li>
+        </ul>
+
+        <h3>4. Por qué utilizamos sus datos personales</h3>
+        <p>La base legal es el consentimiento y el interés legítimo para:</p>
+        <ul>
+            <li>Cumplir con su pedido.</li>
+            <li>Comprender cómo nuestros clientes utilizan nuestros productos.</li>
+            <li>Mejorar nuestro catálogo artesanal.</li>
+        </ul>
+
+        <h3>5. Cómo compartimos la información (Subprocesadores)</h3>
+        <p>Podemos compartir datos con logística externa (motorizados) para las entregas. A continuación, los servicios que utilizamos:</p>
+
+        <div class="tabla-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Servicio Proporcionado</th>
+                        <th>Política</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Freewebstore / Web Host</td>
+                        <td>Alojamiento y datos del sitio web</td>
+                        <td><a href="#">Ver Política</a></td>
+                    </tr>
+                    <tr>
+                        <td>PayPal</td>
+                        <td>Procesamiento de pagos</td>
+                        <td><a href="#">Ver Política</a></td>
+                    </tr>
+                    <tr>
+                        <td>Meta (IG/FB)</td>
+                        <td>Marketing y contacto</td>
+                        <td><a href="#">Ver Política</a></td>
+                    </tr>
+                    <tr>
+                        <td>WhatsApp</td>
+                        <td>Comunicación directa</td>
+                        <td><a href="#">Ver Política</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>6. Retención de Datos</h3>
+        <div class="tabla-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>¿Qué se conserva?</th>
+                        <th>Tiempo de conservación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pedidos</td>
+                        <td>Nombre, correo, dirección</td>
+                        <td>[Definir tiempo, ej: 5 años]</td>
+                    </tr>
+                    <tr>
+                        <td>Facturas</td>
+                        <td>Datos de facturación</td>
+                        <td>[Definir tiempo]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>7. Sus Derechos Individuales</h3>
+        <p>Usted tiene derecho a acceder, rectificar, suprimir, portar y oponerse al procesamiento de sus datos. Para ejercer estos derechos, contáctenos.</p>
+
+        <h3>8. Seguridad de los datos</h3>
+        <p>Adoptamos prácticas y medidas de seguridad estándar de la industria para proteger contra el acceso no autorizado.</p>
+
+        <h3>9. Cómo contactarnos</h3>
+        <div class="contacto-legal">
+            <p>Si tiene dudas, comuníquese con:</p>
+            <p><i class="fas fa-envelope"></i> gyulpetale.floreriaamano@gmail.com</p>
+            <p><i class="fab fa-whatsapp"></i> 901 324 647</p>
+        </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/fondo.js"></script>
+    <script src="js/footer.js"></script>
+
+</body>
+</html>

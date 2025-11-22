@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre Nosotros - Gyulpetale</title>
+    <link rel="stylesheet" href="css/fondo.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-horizontal">
+            <div class="logo-container">
+                <h2>🌸 Gyulpetale</h2>
+            </div>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html" class="active">Sobre Nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#">Categorías ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="categoria.html?tipo=tejido">Flores de Tejido</a></li>
+                        <li><a href="categoria.html?tipo=limpiapipa">Flores de Limpiapipa</a></li>
+                        <li><a href="categoria.html?tipo=satinada">Flores de Cinta Satinada</a></li>
+                        <li><a href="categoria.html?tipo=eco">Flores Eco-sostenibles</a></li>
+                    </ul>
+                </li>
+                <li><a href="ofertas.html">Ofertas del Mes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="carrito-icono" onclick="toggleCarrito()">
+                <i class="fas fa-shopping-cart"></i> <span id="contador-carrito">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay-fondo" id="overlay" onclick="toggleCarrito()"></div>
+    <div class="sidebar-carrito" id="sidebar-carrito">
+        <div class="sidebar-header">
+            <h3>Tu Carrito</h3>
+            <button class="btn-cerrar" onclick="toggleCarrito()">&times;</button>
+        </div>
+        <div class="carrito-items" id="carrito-items"></div>
+        <div class="carrito-footer">
+            <h3>Total: <span id="carrito-total">$0.00</span></h3>
+            <a href="carrito.html" class="btn-ver-carrito">Ver Carrito Completo</a>
+            <button class="btn-agregar" style="width:100%; margin-top:10px;" onclick="pagarPaypal()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <section class="about-hero">
+        <div class="hero-text">
+            <h1>Nuestra Historia</h1>
+            <p>Amor, vida y crecimiento en cada pétalo.</p>
+        </div>
+    </section>
+
+    <div class="container-nosotros">
+        
+        <section class="historia-section">
+            <div class="col-texto">
+                <h2>¿Quiénes Somos?</h2>
+                <p>Somos una florería que comercializa ramos de flores hechos a mano con técnicas artesanales únicas. Nos especializamos en crear belleza eterna utilizando:</p>
+                <ul class="lista-materiales">
+                    <li>🧶 Tejido a crochet</li>
+                    <li>✨ Limpiapipa</li>
+                    <li>🎀 Cinta satinada</li>
+                    <li>♻️ Materiales reciclados (eco-sostenibles)</li>
+                </ul>
+                <p style="margin-top: 15px;">
+                    Nuestras creaciones fusionan las nuevas tendencias creativas con distintivas temáticas simbólicas de series coreanas (K-dramas) y animes japoneses.
+                </p>
+            </div>
+            <div class="col-imagen">
+                <img src="https://via.placeholder.com/500x400/ffb7b2/333?text=Arte+Hecho+a+Mano" alt="Artesanía Gyulpetale">
+            </div>
+        </section>
+
+        <section class="inspiracion-box">
+            <div class="mandarina-icon">🍊</div>
+            <h2>La Inspiración: "Si la vida te da mandarinas"</h2>
+            <p>Gyulpetalé nació inspirada en la calidez de los K-dramas. En nuestra historia, las mandarinas representan tres ideas universales: <strong>amor, vida y crecimiento</strong>.</p>
+            
+            <blockquote>
+                "Si la vida te da limones, haz limonada; pero si la vida te da mandarinas, encuentra a alguien con quien compartirlas. 
+                Porque las partes más dulces no están hechas para disfrutarse solas. 
+                Y a veces, en los momentos más ácidos, alguien te va a dar un gajo dulce."
+            </blockquote>
+
+            <p class="metafora-cierre">
+                Inspirados en esta metáfora, Gyulpetalé nace como un emprendimiento que busca transmitir emociones reales y lograr que, a través de nuestro arte manual, estos sentimientos no se "marchiten", sino que perduren por más tiempo.
+            </p>
+        </section>
+
+        <section class="mision-vision-grid">
+            <div class="mv-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Nuestra Misión</h3>
+                <p>Brindamos arte floral artesanal que exprese emociones reales y promueva un consumo consciente, abriendo al público una nueva categoría de flores únicas y sostenibles, fusionando la estética coreana con la creatividad peruana.</p>
+            </div>
+            <div class="mv-card">
+                <i class="fas fa-eye"></i>
+                <h3>Nuestra Visión</h3>
+                <p>Ser una florería artesanal reconocida en Lima Metropolitana por su autenticidad, arte sostenible y estética inspirada en K-dramas, convirtiéndonos en un referente de innovación emocional dentro del mercado artesanal peruano.</p>
+            </div>
+        </section>
+
+        <section class="valores-section">
+            <h2>Nuestros Valores</h2>
+            <div class="valores-grid">
+                
+                <div class="valor-item">
+                    <div class="icono-valor"><i class="fas fa-palette"></i></div>
+                    <h4>Creatividad</h4>
+                    <p>Valoramos la originalidad, expresando emociones que conectan a través de flores inspiradas en la cultura coreana.</p>
+                </div>
+
+                <div class="valor-item">
+                    <div class="icono-valor"><i class="fas fa-leaf"></i></div>
+                    <h4>Sostenibilidad</h4>
+                    <p>Respeto por el medio ambiente mediante el uso de materiales reciclados y procesos que reducen residuos.</p>
+                </div>
+
+                <div class="valor-item">
+                    <div class="icono-valor"><i class="fas fa-hands-holding-heart"></i></div>
+                    <h4>Artesanía y Dedicación</h4>
+                    <p>Reivindicamos el valor manual. Cada pieza es resultado de tiempo, paciencia y amor por el detalle.</p>
+                </div>
+
+                <div class="valor-item">
+                    <div class="icono-valor"><i class="fas fa-rocket"></i></div>
+                    <h4>Innovación Artesanal</h4>
+                    <p>Reinventamos el arte floral tradicional, integrando nuevas ideas, materiales y conceptos culturales.</p>
+                </div>
+
+                <div class="valor-item">
+                    <div class="icono-valor"><i class="fas fa-globe-americas"></i></div>
+                    <h4>Identidad Cultural</h4>
+                    <p>Fusionamos la creatividad peruana con la estética de los K-dramas, celebrando el arte sin fronteras.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>    
+   
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/fondo.js"></script>
+
+</body>
+</html>

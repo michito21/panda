@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Compra - Gyulpetale</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    
+    <style>
+        /* Estilos para ocultar/mostrar secciones */
+        .oculto { display: none; }
+        .paypal-container { margin-top: 20px; padding: 20px; border: 1px dashed #003087; background: #f0f8ff; border-radius: 10px; text-align: center; }
+    </style>
+</head>
+<body class="bg-gris">
+
+    <nav class="menu-pago">
+        <a href="index.html" class="logo-pago">🌸 Gyulpetale | Pago Seguro</a>
+    </nav>
+
+    <div class="checkout-container">
+        
+        <div class="columna-form">
+            <h2>Método de Pago</h2>
+            
+            <div class="opciones-pago">
+                <button class="btn-metodo activo" id="btn-tarjeta" onclick="cambiarMetodo('tarjeta')">
+                    <i class="far fa-credit-card"></i> Tarjeta
+                </button>
+                <button class="btn-metodo" id="btn-paypal" onclick="cambiarMetodo('paypal')">
+                    <i class="fab fa-paypal"></i> PayPal
+                </button>
+            </div>
+
+            <form id="form-tarjeta" onsubmit="realizarPagoTarjeta(event)">
+                <div class="input-group">
+                    <label>Nombre en la tarjeta</label>
+                    <input type="text" placeholder="Ej. Maria Perez" required>
+                </div>
+                <div class="input-group">
+                    <label>Número de Tarjeta</label>
+                    <div class="input-con-icono">
+                        <i class="far fa-credit-card"></i>
+                        <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                    </div>
+                </div>
+                <div class="fila-doble">
+                    <div class="input-group">
+                        <label>Vencimiento</label>
+                        <input type="text" placeholder="MM/AA" maxlength="5" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CVV</label>
+                        <input type="password" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-pagar-real">Pagar con Tarjeta</button>
+            </form>
+
+            <div id="seccion-paypal" class="oculto">
+                <div class="paypal-container">
+                    <p style="margin-bottom: 15px;">Completa tu pago de forma segura con PayPal:</p>
+                    <div id="paypal-button-container"></div>
+                </div>
+            </div>
+            
+            <p class="seguridad-msg"><i class="fas fa-lock"></i> Tus datos están encriptados y seguros.</p>
+        </div>
+
+        <div class="columna-resumen">
+            <h3>Resumen del Pedido</h3>
+            <div id="lista-resumen-pago"></div>
+            <div class="total-final">
+                <span>Total a Pagar:</span>
+                <span id="total-pago-display">$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-modal" class="modal-exito">
+        <div class="contenido-modal">
+            <i class="fas fa-check-circle icono-exito"></i>
+            <h2>¡Pago Exitoso!</h2>
+            <p>Gracias por tu compra en Gyulpetale.</p>
+            <button onclick="window.location.href='index.html'">Volver a la Tienda</button>
+        </div>
+    </div>
+
+    <script>
+        // --- PARTE 1: LÓGICA DE LOS BOTONES (Fuera del onload para que funcione siempre) ---
+        function cambiarMetodo(metodo) {
+            // Buscamos los elementos cada vez que haces clic
+            const formTarjeta = document.getElementById('form-tarjeta');
+            const seccionPaypal = document.getElementById('seccion-paypal');
+            const btnTarjeta = document.getElementById('btn-tarjeta');
+            const btnPaypal = document.getElementById('btn-paypal');
+
+            if (metodo === 'tarjeta') {
+                // Mostrar Tarjeta
+                formTarjeta.classList.remove('oculto');     // Quitar oculto
+                seccionPaypal.classList.add('oculto');      // Ocultar PayPal
+                btnTarjeta.classList.add('activo');         // Iluminar botón tarjeta
+                btnPaypal.classList.remove('activo');       // Apagar botón PayPal
+            } else if (metodo === 'paypal') {
+                // Mostrar PayPal
+                formTarjeta.classList.add('oculto');        // Ocultar Tarjeta
+                seccionPaypal.classList.remove('oculto');   // Quitar oculto a PayPal
+                btnTarjeta.classList.remove('activo');      // Apagar botón tarjeta
+                btnPaypal.classList.add('activo');          // Iluminar botón PayPal
+            }
+        }
+
+        // --- PARTE 2: CARGA DE DATOS Y PAYPAL (Al iniciar la página) ---
+        window.onload = function() {
+            
+            // 1. Cargar Carrito y Totales
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let totalMonto = 0;
+            const contenedor = document.getElementById('lista-resumen-pago');
+            const totalDisplay = document.getElementById('total-pago-display');
+            
+            if(carrito.length === 0) {
+                window.location.href = 'index.html';
+                return; 
+            }
+
+            carrito.forEach(item => {
+                totalMonto += item.precio;
+                contenedor.innerHTML += `
+                    <div class="item-resumen">
+                        <div class="info">
+                            <img src="${item.imagen}" width="40" style="border-radius:4px;">
+                            <span>${item.nombre}</span>
+                        </div>
+                        <span>$${item.precio.toFixed(2)}</span>
+                    </div>`;
+            });
+            totalDisplay.innerText = `$${totalMonto.toFixed(2)}`;
+
+            // 2. Inicializar Botón de PayPal
+            // Verificamos si PayPal cargó correctamente antes de intentar renderizar
+            if (window.paypal) {
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{ amount: { value: totalMonto.toFixed(2) } }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            mostrarExito();
+                        });
+                    },
+                    onError: function (err) {
+                        console.error('Error en PayPal:', err);
+                        alert("Hubo un error cargando PayPal. Intenta con tarjeta.");
+                    }
+                }).render('#paypal-button-container');
+            } else {
+                console.error("El SDK de PayPal no se cargó correctamente.");
+                document.getElementById('seccion-paypal').innerHTML = "<p>Error de conexión con PayPal.</p>";
+            }
+        };
+
+        // --- PARTE 3: FUNCIONES AUXILIARES ---
+        function realizarPagoTarjeta(e) {
+            e.preventDefault();
+            mostrarExito();
+        }
+
+        function mostrarExito() {
+            document.getElementById('success-modal').style.display = 'flex';
+            localStorage.removeItem('carrito');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Términos y Condiciones - Gyulpetale</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/fondo.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="menu-horizontal">
+            <div class="logo-container">
+                <h2>🌸 Gyulpetale</h2>
+            </div>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#">Categorías ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="categoria.html?tipo=tejido">Flores de Tejido</a></li>
+                        <li><a href="categoria.html?tipo=limpiapipa">Flores de Limpiapipa</a></li>
+                        <li><a href="categoria.html?tipo=satinada">Flores de Cinta Satinada</a></li>
+                        <li><a href="categoria.html?tipo=eco">Flores Eco-sostenibles</a></li>
+                    </ul>
+                </li>
+                <li><a href="ofertas.html">Ofertas del Mes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="carrito-icono" onclick="toggleCarrito()">
+                <i class="fas fa-shopping-cart"></i> <span id="contador-carrito">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay-fondo" id="overlay" onclick="toggleCarrito()"></div>
+    <div class="sidebar-carrito" id="sidebar-carrito">
+        <div class="sidebar-header">
+            <h3>Tu Carrito</h3>
+            <button class="btn-cerrar" onclick="toggleCarrito()">×</button>
+        </div>
+        <div class="carrito-items" id="carrito-items"></div>
+        <div class="carrito-footer">
+            <h3>Total: <span id="carrito-total">$0.00</span></h3>
+            <a href="carrito.html" class="btn-ver-carrito">Ver Carrito Completo</a>
+            <button class="btn-agregar" style="width:100%; margin-top:10px;" onclick="pagarPaypal()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="contenedor-legal">
+        <h1>Términos y Condiciones</h1>
+        <p class="intro-legal">Por favor, lea atentamente estos términos antes de utilizar nuestros servicios.</p>
+        
+        <div class="alerta-legal">
+            <p><strong>Consentimiento:</strong> Al continuar navegando o accediendo a este sitio web, usted indica la aceptación de los términos establecidos a continuación. Si no acepta alguno de estos términos, por favor abandone este sitio web.</p>
+        </div>
+
+        <hr>
+
+        <h3>1. Aceptación de los Términos de Uso</h3>
+        <p>Cada vez que usted utiliza o accede a este sitio web, acepta estar sujeto a estos Términos de Uso, tal como se modifican ocasionalmente. Consulte también nuestra <a href="politicas.html">Política de Privacidad</a>, que se incorpora a estos Términos para referencia.</p>
+
+        <h3>2. Nuestro Servicio</h3>
+        <p>Nuestro sitio web y los servicios se ofrecen "TAL CUAL". Nos reservamos el derecho de modificar o descontinuar el servicio en cualquier momento sin previo aviso. Nuestro servicio principal es la <strong>venta de productos artesanales (ramos y arreglos florales)</strong>.</p>
+
+        <h3>3. Registro y Responsabilidades</h3>
+        <p>Para utilizar ciertos servicios, se le puede solicitar registrarse y proporcionar información veraz. Usted acepta explícitamente nuestros Términos de Uso al registrarse.</p>
+
+        <h3>4. Política de Privacidad</h3>
+        <p>Los datos de registro y otra información personal están sujetos a los términos de nuestra Política de Privacidad.</p>
+
+        <h3>5. Seguridad de la Cuenta</h3>
+        <p>Usted es responsable de mantener la confidencialidad de su contraseña y de todos los usos de su cuenta, sean autorizados o no. Debe notificarnos inmediatamente sobre cualquier uso no autorizado.</p>
+
+        <h3>6. Conducta del Usuario</h3>
+        <p>Usted acepta no utilizar este sitio para: (a) actividades ilegales o dañinas; (b) suplantar identidades; (c) recolectar datos de otros usuarios; (d) enviar spam o publicidad no autorizada; (e) violar derechos de propiedad intelectual o leyes locales/internacionales.</p>
+
+        <h3>7. Terceros</h3>
+        <p>Los productos y servicios de terceros (como PayPal o servicios de mensajería) se rigen por sus propias políticas. No somos responsables por su interacción con ellos.</p>
+
+        <h3>8. Indemnización</h3>
+        <p>Usted acepta indemnizar y eximir de responsabilidad a GyulPetalé y sus afiliados de cualquier reclamo o demanda (incluyendo honorarios legales) que surja de su uso del sitio o violación de estos términos.</p>
+
+        <div class="caja-descargo">
+            <h3>9. Descargo de Responsabilidad de Garantías</h3>
+            <p>USTED ENTIENDE Y ACEPTA QUE EL USO DEL SERVICIO ES BAJO SU PROPIO RIESGO. EL SERVICIO SE PROPORCIONA "TAL CUAL" Y RENUNCIAMOS A TODAS LAS GARANTÍAS, IMPLÍCITAS O EXPRESAS. NO GARANTIZAMOS QUE EL SERVICIO SEA ININTERRUMPIDO O LIBRE DE ERRORES.</p>
+        </div>
+
+        <div class="caja-descargo">
+            <h3>10. Limitación de Responsabilidad</h3>
+            <p>NO SEREMOS RESPONSABLES DE DAÑOS DIRECTOS, INDIRECTOS O CONSECUENTES (INCLUYENDO PÉRDIDA DE GANANCIAS O DATOS) QUE RESULTEN DEL USO O IMPOSIBILIDAD DE USO DEL SERVICIO, O DE BIENES/SERVICIOS ADQUIRIDOS A TRAVÉS DEL MISMO.</p>
+        </div>
+
+        <h3>11. Reserva de Derechos</h3>
+        <p>Nos reservamos todos los derechos de propiedad intelectual (derechos de autor, marcas, patentes) sobre nuestro sitio web y contenido. El uso comercial requiere nuestro consentimiento previo por escrito.</p>
+
+        <h3>12. Notificación de Infracción</h3>
+        <p>Si cree que se han violado sus derechos de autor, contáctenos en: <a href="mailto:gyulpetale.floreriaamano@gmail.com">gyulpetale.floreriaamano@gmail.com</a>.</p>
+
+        <h3>13. Ley Aplicable y Jurisdicción</h3>
+        <p>Estos términos se rigen por las leyes de Perú. Usted acepta someterse a la jurisdicción exclusiva de los tribunales de <strong>Lima, Perú</strong>.</p>
+
+        <h3>14. Información Miscelánea</h3>
+        <p>Cualquier reclamo relacionado con este sitio debe presentarse dentro de un (1) año. Si una disposición se considera inválida, el resto permanecerá en vigor.</p>
+
+        <hr>
+        
+        <div class="contacto-legal">
+            <p>¿Tiene dudas sobre estos términos?</p>
+            <p><i class="fas fa-envelope"></i> gyulpetale.floreriaamano@gmail.com</p>
+        </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/fondo.js"></script>
+    <script src="js/footer.js"></script>
+
+</body>
+</html>
