@@ -1,0 +1,51 @@
+/* =========================================
+   FONDO.CSS - Estilos de la animación de fondo
+   ========================================= */
+
+#fondo-animado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Detrás de todo */
+    pointer-events: none; /* No interfiere con clics */
+}
+
+.petalo {
+    position: absolute;
+    top: -50px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #ffb7b2;
+    border-radius: 150% 0 150% 0;
+    opacity: 0.8;
+    animation: caer linear infinite;
+}
+
+@keyframes caer {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        top: 110%;
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Variaciones de color */
+.petalo:nth-child(even) {
+    background: #e2f0cb; /* Verde suave */
+    border-radius: 0 150% 0 150%;
+}
+.petalo:nth-child(3n) {
+    background: #ffdac1; /* Durazno */
+}
